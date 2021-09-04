@@ -28,9 +28,8 @@ function snackbarStyle(div){
     h2.innerText = 'Thank You For your Submission...'
     h2.style.position = 'relative'
     h2.style.top = '25%'
-    
+
     div.appendChild(h2)
-    div.appendChild(close)
     div.style.width = '30%'
     div.style.height = '20%'
     div.style.backgroundColor = '#ACDF87'
