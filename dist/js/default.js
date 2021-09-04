@@ -17,9 +17,6 @@ function handleValueUpdate(){
         })
     })
 }
-function alertBox(){
-
-}
 
 function snackbarStyle(div){
     let main = document.querySelector('main')
@@ -56,7 +53,7 @@ document.addEventListener('submit', (event) =>{
         e.target.style.display = 'none'
     })
 
-    
+    // MAKE POST REQUEST TO END POINT. SEND FORM DATA
     let dataArray = serializeForm()
     fetch(`${BASE_URL}`, {
         method: 'POST',
@@ -76,6 +73,9 @@ document.addEventListener('submit', (event) =>{
     .catch((err) => console.log(err))
 })
 
+//Conver the form's data into a key value pairs using the the Javascript DataForm Method
+//This function builds the body of the POST request
+//By creating an arry of object with properties name & value. It returns an array
 function serializeForm(){
     let formDataArr = []
     let obj = {name: '', value: ''}
@@ -106,11 +106,12 @@ function get(){
 }
 get();
 
+//USE RETURNED DATA TO POPULATE THE LABEL FIELDS
 function getReturnedData(data){
-    let attrs = Object.keys(data[0]).filter(val => val !== "label");
+    let attrs = Object.keys(data[0]).filter(val => val !== "label"); // Filter out 'Label' because it's not an attribute, it's a value
+    
     data.forEach((question, indx) => {
-
-        //check for question with option 
+        //check for question with radio type & populate the Legend field
         if(question.type === 'radio'){
             let options = question.options
             legendTag.innerText = question.legend
@@ -120,9 +121,11 @@ function getReturnedData(data){
 
         }
     });
+
     addAttributes(labelTags, inputTags, data, attrs)
 }
 
+//ADD INPUT TAG ATTRIBUTES 
 function addAttributes(labelTags, inputsTags, questions, attrs){
 
     for(let i = 0; i < inputsTags.length; i++){
@@ -157,13 +160,15 @@ function addAttributes(labelTags, inputsTags, questions, attrs){
     handleValueUpdate()
 }
 
+
+//FUNCTION HANDLES SETTING ATTRUBIUTES FOR FIELDSET & RADIO INPUTS. 
 function showRadioOption(radioOptions, questions, attrs){
     let optionAttrs = Object.keys(radioOptions[0]).filter(val => val !== "label");
 
     //Get index of question with type radio; Works well if there is just one radio question
     let questionIndex = questions.findIndex(question => question.type === 'radio')
 
-    //SET ATTRIBUTE FOR FIELDSET
+    //SET ATTRIBUTE FOR FIELDSET. I.E THE FIELDSET TAG WRAPPING THE RADION LABELS & INPUTS
     attrs.forEach(attr => {
         if(attr  !== 'required'){
             field.setAttribute(attr, questions[questionIndex][attr])
