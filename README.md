@@ -22,6 +22,11 @@ $ npm start
 
 This will start a simple Express app that will serve the contents of the [**./dist**](dist) directory where you will be placing your code.
 
+Open Index.html
+
+To check out the code; open the project directory in the code editor of your choice
+Run Index.html in the broswer of your choice. Currently compatible with Google Chrome and Safarai and Not yet mobile responsive.
+
 ### 1) Fetch questions
 
 GET questions from the endpoint `https://putsreq.com/RWhI8ht10y5kqfmemrML`. The response will be:

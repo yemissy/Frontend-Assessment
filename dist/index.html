@@ -6,14 +6,50 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
     <link href="favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="style.css" rel='stylesheet' type='text/css' />
 
     <title>Front-end Assignment</title>
   </head>
 
   <body>
     <main>
-      <form>
+      <h2>Hello! Please Fill Out The Details Below 😊 </h2>
+       <h4>[Jane , Doe, 9999999999, jd@email.com, phone]</h4>
+      <form id='form'>
         <!-- The application form goes here -->
+        <div class= 'holder'>
+          <label class="label-tag"></label>
+          <input class="input-label"/>
+        </div>
+        <div class= 'holder'>
+          <label class="label-tag right-label-tag"></label>
+          <input class="input-label"/>
+        </div>
+        <div class= 'holder'>
+          <label class="label-tag"></label>
+          <input class="input-label"/>
+        </div>
+        <div class= 'holder'>
+          <label class="label-tag right-label-tag"></label>
+          <input class="input-label"/>
+        </div>
+        <div class= 'holder' id='field-set-css'>
+          <fieldset id= 'field-set'>
+            <legend id= 'legend'></legend>
+              <!-- This should and could be optimized to be created dynamically-->
+              <div>
+                <label class="radio-label"></label>
+                <input class="radio-input" />
+              </div>
+              <div>
+                <label class="radio-label"></label>
+                <input class="radio-input" />
+              </div>
+          </fieldset>
+        </div>
+        <div class= 'holder'>
+          <input class="input-label" id='submit'/>
+        </div>
       </form>
     </main>
 

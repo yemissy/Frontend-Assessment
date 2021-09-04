@@ -84,7 +84,6 @@ if (request.request_method === 'GET') {
 
 if (request.request_method === 'POST') {
   var submission = JSON.parse(request.body);
-
   var res = {};
 
   if (JSON.stringify(submission) === JSON.stringify(FORM_DATA)) {
